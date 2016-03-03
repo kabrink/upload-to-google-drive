@@ -3,7 +3,7 @@
  
 <!-- You can also include your own CSS styles -->
 <style>
-  form { margin: 40px auto; }
+  form { margin: 40px 240px 40px;  font-family: verdana; font-size:20px}
   input { display:block; margin: 20px; }
 </style>
 
@@ -11,7 +11,7 @@
   
   // The function will be called after the form is submitted
   function uploadFile() {
-    document.getElementById('uploadFile').value = "Uploading File(s)";
+    document.getElementById('uploadFile').value = "Uploading Files";
     google.script.run
        .withSuccessHandler(fileUploaded)
        .uploadFiles(document.getElementById("labnol"));
@@ -26,19 +26,24 @@
   
 </script>
  
+
+<IMG SRC="http://sites.lsa.umich.edu/livinglab/wp-content/uploads/sites/182/2014/11/header1.jpg" ALT="some text" WIDTH=960 HEIGHT=150>
+
+
 <!-- This is the HTML form -->
 <form id="labnol">
- 
   <!-- Text input fields -->
-  <label>First Name</label>
-  <input type="text" name="firstName" placeholder="Your first name.">
+  
+  <label for="firstname">First Name</label>
+  <input id='firstname' type="text" name="firstName" style="margin: 20px 0px 20px">
+  
   
   <label>Last Name</label>
-  <input type="text" name="lastName" placeholder="Your last name.">
+  <input type="text" name="lastName" style="margin: 20px 0px 20px">
+  
  
   <!-- File input filed-->
-  <label>IRB application (PDF)</label>
-  <input type="file" name="IRBapp">
+  IRB application (PDF) <input type="file" name="IRBapp">
   
   <label>IRB approval email (PDF)</label>
   <input type="file" name="IRBemail">
@@ -56,7 +61,7 @@
   <input type="file" name="Flyer">
  
   <!-- The submit button. It calls the server side function uploadfiles() on click -->
-  <input type="submit" id="uploadFile" value="Upload File" 
+  <input type="submit" id="uploadFile" value="Upload Files"
          onclick="this.value='Uploading.';uploadFile();">
  
 </form>
